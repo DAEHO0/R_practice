@@ -16,7 +16,7 @@ str(age) # num(numeric), num은 숫자열을 의미
 
 iris # 붓꽃과 관련된 내장데이터
 
-data <- iris # data 변수에 irir 데이터를 저장
+data <- iris # data 변수에 iris 데이터를 저장
 
 class(iris) # class는 데이터 타입을 확인, chr, num, data.frame, vector...
 str(iris) # iris 데이터의 간단한 구조를 확인
