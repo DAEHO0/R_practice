@@ -1,13 +1,13 @@
 # t-test
 
-data <- iris
-str(data)
+data <- iris # data변수에 iris 데이터에 저장
+str(data) # str 함수를 사용하여 data 변수의 구조를 출력
 
-setosa <- data[data$Species == "setosa", ]
-versicolor <- data[data$Species == "versicolor", ]
+setosa <- data[data$Species == "setosa", ] # data변수 행렬 중 Species가 setosa인 열의 모든 행을 출력
+versicolor <- data[data$Species == "versicolor", ] # data변수 행렬 중 Species가 versicolor인 열의 모든 행을 출력
 
-str(setosa)
-str(versicolor)
+str(setosa) # 50개의 관측치와 5개의 변수 출력
+str(versicolor) # 50개의 관측치와 5개의 변수 출력
 
 help(t.test)
 t.test(setosa$Sepal.Length, mu = 5, alternative = "two.sided")
@@ -41,3 +41,8 @@ mean of x mean of y
     5.006     5.936
     
 """
+# paired t-test
+# t.test(setosa_Before$Sepal.Length,
+#        setosa_After$Sepal.Length,
+#        paired = T,
+#        alternative = "two.sided")
