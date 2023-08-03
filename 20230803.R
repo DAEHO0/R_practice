@@ -10,7 +10,11 @@ str(setosa) # 50개의 관측치와 5개의 변수 출력
 str(versicolor) # 50개의 관측치와 5개의 변수 출력
 
 help(t.test)
-t.test(setosa$Sepal.Length, mu = 5, alternative = "two.sided")
+t.test(setosa$Sepal.Length,
+       mu = 5, # mu = 모집단의 평균
+       alternative = "two.sided")
+
+# 표본의 평균과 모집단의 평균(mu의 값)을 비교
 
 """
 One Sample t-test
