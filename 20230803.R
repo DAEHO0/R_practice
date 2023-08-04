@@ -3,18 +3,23 @@
 data <- iris # data변수에 iris 데이터에 저장
 str(data) # str 함수를 사용하여 data 변수의 구조를 출력
 
-setosa <- data[data$Species == "setosa", ] # data변수 행렬 중 Species가 setosa인 열의 모든 행을 출력
-versicolor <- data[data$Species == "versicolor", ] # data변수 행렬 중 Species가 versicolor인 열의 모든 행을 출력
+setosa <- data[data$Species == "setosa", ] # data변수(iris 데이터) 행렬 중 Species가 setosa인 열의 모든 행을 출력
+versicolor <- data[data$Species == "versicolor", ] # data변수(iris 데이터) 행렬 중 Species가 versicolor인 열의 모든 행을 출력
 
 str(setosa) # 50개의 관측치와 5개의 변수 출력
 str(versicolor) # 50개의 관측치와 5개의 변수 출력
 
-help(t.test)
-t.test(setosa$Sepal.Length,
-       mu = 5, # mu = 모집단의 평균
-       alternative = "two.sided")
+help(t.test) # help(): 함수의 설명과 사용법을 출력하는 함수
 
-# 표본의 평균과 모집단의 평균(mu의 값)을 비교
+t.test(setosa$Sepal.Length,       # setosa$Sepal.Length는 setosa 데이터프레임의 Sepal.Length변수(열)에 해당하는 관측치(행)를 의미
+       mu = 5,                    # mu = 모집단의 평균, 모집단의 평균을 5라고 가정
+       alternative = "two.sided") # alternative는 대립가설의 방향을 지정하는 인자
+                                  # alternative는 "two.sided", "less", "greater" 총 세가지 옵션이 있음
+                                  # "two.sided"(양측검정):  
+                                  # "less"(단측검정, 적은)
+                                  # "greater"()
+
+# 위 t.test 식은 표본의 평균과 모집단의 평균(mu의 값)을 비교
 
 """
 One Sample t-test
