@@ -20,14 +20,22 @@ t.test(setosa$Sepal.Length,       # setosa$Sepal.Length는 setosa 데이터프레임의 
                                   # "greater"(단측검정 큰쪽):
 
 """
-One Sample t-test # 단일표본 t-검정
+One Sample t-test # 단일표본 t-검정은 검정하고자 하는 그룹의 평균이 모집단의 평균과 다른지 검정
+                  # 이 때 검정하고자 하는 그룹은 setosa(setosa 데이터 프레임의 Sepal.Length변수)이며 모집단의 평균은 5(mu = 5)라고 가정한다
 
-data:  setosa$Sepal.Length  # 검정에 사용된 데이터는 setosa 데이터 프레임의 꽃받침 길이 변수(열)
-t = 0.12036, df = 49, p-value = 0.9047  # t: 
-alternative hypothesis: true mean is not equal to 5
-95 percent confidence interval:
- 4.905824 5.106176
-sample estimates:
+data:  setosa$Sepal.Length  # 검정에 사용된 데이터는 setosa 데이터 프레임의 Sepal.Length 변수
+t = 0.12036, df = 49, p-value = 0.9047  # t: t값이 +이면 해당 그룹의 평균이 모집단의 평균보다 크고 
+                                        # t값이 -이면 해당 그룹의 평균이 모집단의 평균보다 작다
+                                        # df(degree of freedom): t검정의 자유도
+                                        # p-value(유의확율):
+                                        
+alternative hypothesis: true mean is not equal to 5 # 대립가설: 참 평균이 5와 같지 않다
+                                                    # 즉, 검정하고자 하는 그룹의 평균이 5와 같지 않다는 것을 가설로 세움
+                                                    
+95 percent confidence interval:   # 4.905824부터 5.106176까지 95% 신뢰구간으로 추정  
+ 4.905824 5.106176                # 이 범위 내 참 평균이 존재할 가능성이 높다
+ 
+sample estimates:   # 검정하고자 하는 그룹의 표본평균은 5.006으로 추정
 mean of x 
     5.006
     
