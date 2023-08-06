@@ -43,19 +43,27 @@ mean of x
 # p-value(유의확률) 값은 0.9047로 0.05보다 높게 나왔으며 표본의 평균도 5.006으로 모집단의 평균과 다르지 않다는 결과를 확인할 수 있다
 # 따라서 귀무가설을 채택한다
 
-t.test(setosa$Sepal.Length, versicolor$Sepal.Length, alternative = "two.sided")
+t.test(setosa$Sepal.Length, versicolor$Sepal.Length, # 검정에 사용하고자 할 두 집단
+                                                     # setosa 데이터 프레임의 Sepal.Length 변수와 versicolor 데이터 프레임의 Sepal.Length 변수를 사용
+       alternative = "two.sided")                    # 대립가설을 양측검정으로 사용
 
 """
-Welch Two Sample t-test
+Welch Two Sample t-test # Bernard Lewis Welch 통계학자의 독립표본 t-검정
+                        # 독립표본 t-검정(Independent Samples t-test)은 알 수 없는 두 그룹의 모집단의 평균이 같은지 검정하는데 사용
 
-data:  setosa$Sepal.Length and versicolor$Sepal.Length
-t = -10.521, df = 86.538, p-value < 2.2e-16
-alternative hypothesis: true difference in means is not equal to 0
-95 percent confidence interval:
- -1.1057074 -0.7542926
-sample estimates:
-mean of x mean of y 
-    5.006     5.936
+data:  setosa$Sepal.Length and versicolor$Sepal.Length  # 검정하고자 하는 두 그룹의 데이터
+                                                        # setosa 그룹의 데이터와 versicolor 그룹의 데이터
+                                                        
+t = -10.521, df = 86.538, p-value < 2.2e-16 # t값이 -이므로 versicolor 그룹의 평균이 setosa 그룹의 평균보다 높다
+alternative hypothesis: true difference in means is not equal to 0  # 대립가설: 평균의 참 차이가 0과 같지 않다
+                                                                    # 즉, 두 그룹의 평균 차이가 0이 아니라는 뜻으로 두 그룹은 평균적으로 서로 다른 값을 가지고 있다
+                                                                    # 두 그룹에는 유의미한 차이가 있다
+                                                                    
+95 percent confidence interval: # 해당 데이터의 평균 추정치 범위가 -1.1057074부터 -0.7542926까지 있을 가능성이 95%
+ -1.1057074 -0.7542926          # 정확한 값은 아니며 해당 평균 추정치가 신뢰구간 안에 있을 가능성이 높다
+sample estimates:               # 표본평균의 추정치 
+mean of x mean of y             # x(setosa)와 y(versicolor)의 평균 추정치
+    5.006     5.936             # x(setosa)의 평균 추정치 5.006 < y(versicolor)의 평균 추정치 5.936
     
 """
 # paired t-test
