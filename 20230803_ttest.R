@@ -66,7 +66,8 @@ mean of x mean of y             # x(setosa)와 y(versicolor)의 평균 추정치
     5.006     5.936             # x(setosa)의 평균 추정치 5.006 < y(versicolor)의 평균 추정치 5.936
     
 """
-# paired t-test
+
+# paired t-test 대응표본 t-검정
 # t.test(setosa_Before$Sepal.Length,
 #        setosa_After$Sepal.Length,
 #        paired = T,
