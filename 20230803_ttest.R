@@ -66,6 +66,10 @@ mean of x mean of y             # x(setosa)와 y(versicolor)의 평균 추정치
     5.006     5.936             # x(setosa)의 평균 추정치 5.006 < y(versicolor)의 평균 추정치 5.936
     
 """
+# 결론: 대립가설을 채택한다, 위 t.test는 두 표본의 평균과 비교했을 때 p-value(유의확률) 값이
+# 2.2e-16(2.2의 -16승)으로 귀무가설의 귀무가설의 기각기준 수치인 0.05보다 작게 나왔으며 
+# 두 표본의 평균이 5.006(x), 5.936(y)로 뚜렷한 차이가 있는 것으로 보인다
+# 따라서 대립가설을 채택한다
 
 # paired t-test 대응표본 t-검정
 # t.test(setosa_Before$Sepal.Length,
