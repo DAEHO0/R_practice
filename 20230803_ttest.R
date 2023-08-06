@@ -15,9 +15,7 @@ t.test(setosa$Sepal.Length,       # setosa$Sepal.Length는 setosa 데이터프레임의 
        mu = 5,                    # mu = 모집단의 평균, 모집단의 평균을 5라고 가정
        alternative = "two.sided") # alternative는 대립가설의 방향을 지정하는 인자, 즉 양측과 단측검정 중 어느 것을 할 것인가?
                                   # alternative는 "two.sided", "less", "greater" 총 세가지 옵션이 있음
-                                  # "two.sided"(양측검정): 
-                                  # "less"(단측검정, 적은쪽):
-                                  # "greater"(단측검정 큰쪽):
+                                  # "two.sided"(양측검정), "less"(단측검정, 적은쪽), "greater"(단측검정 큰쪽)
 
 """
 One Sample t-test # 단일표본 t-검정은 검정하고자 하는 그룹의 평균이 모집단의 평균과 다른지 검정
@@ -27,7 +25,7 @@ data:  setosa$Sepal.Length  # 검정에 사용된 데이터는 setosa 데이터 프레임의 Sepa
 t = 0.12036, df = 49, p-value = 0.9047  # t: t값이 +이면 해당 그룹의 평균이 모집단의 평균보다 크고 
                                         # t값이 -이면 해당 그룹의 평균이 모집단의 평균보다 작다
                                         # df(degree of freedom): t검정의 자유도
-                                        # p-value(유의확율):
+                                        # p-value(유의확율): 귀무가설이 참이라고 가정한 확률 또는 귀무가설이 참임에도 이를 기각할 확률
                                         
 alternative hypothesis: true mean is not equal to 5 # 대립가설: 참 평균이 5와 같지 않다
                                                     # 즉, 검정하고자 하는 그룹의 평균이 5와 같지 않다는 것을 가설로 세움
@@ -40,8 +38,10 @@ mean of x
     5.006
     
 """
-# 위 t.test 식은 표본의 평균과 모집단의 평균(mu의 값)을 비교
-
+# 결론: 귀무가설을 채택한다, 위 t.test 식은 표본의 평균과 모집단의 평균(mu의 값)을 비교하여 모집단의 평균을 5라고 가정했을 때
+# 표본의 평균이 모집단의 평균과 같지 않을 것이라는 대안(대립)가설을 세우고 검정한 결과는
+# p-value(유의확률) 값은 0.9047로 0.05보다 높게 나왔으며 표본의 평균도 5.006으로 모집단의 평균과 다르지 않다는 결과를 확인할 수 있다
+# 따라서 귀무가설을 채택한다
 
 t.test(setosa$Sepal.Length, versicolor$Sepal.Length, alternative = "two.sided")
 
