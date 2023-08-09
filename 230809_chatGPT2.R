@@ -42,5 +42,4 @@ clstr <- kmeans(data, centers = 2)
 # In storage.mode(x) <- "double" : NAs introduced by coercion
 
 # 클러스터링 결과 시각화
-
 plot(data, col = clstr$cluster)
