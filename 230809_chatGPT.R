@@ -36,3 +36,17 @@ summary(fctr_rslt)
 
 # 요인 로딩 출력
 fctr_rslt$loadings
+
+### 빅데이터 클러스터링(k-means clustering)
+
+# 라이브러리 불러오기
+install.packages("cluster")
+library(cluster)
+
+# k-means 클러스터링
+clusters <- kmeans(big_data[ , c("variable1", "variable2")], centers = 3)
+
+# 클러스터 결과 시각화
+ggplot(big_data, aes(x = variable1, y = variable2,
+                     factor(clusters$cluster))) + geom_point()
+
