@@ -69,3 +69,33 @@ norm_data <- as.data.frame(lapply(data, mn_mx_norm))
 z_score_norm <- function(x) {
   return((x - mean(x)) / sd(x))
 }
+
+### 데이터 병합 ###
+
+# 데이터 로딩
+data1 <- data.frame(id = c(1, 2, 3),
+                    name = c("Choonsik", "Chulsoo", "Boknam"))
+data2 <- data.frame(id = c(2, 3, 4),
+                    score = c(85, 78, 92))
+
+# 행 기준 병합(rbind)
+mer_row <- rbind(data1, data2)
+# Error in match.names(clabs, names(xi)) : 
+# names do not match previous names
+mer_col <- cbind(data1, data2)
+mer_col
+
+# 공통 열 기준 병합(merge)
+mer_common <- merge(data1, data2, by = "id")
+mer_common
+
+
+### 파생변수 ###
+
+# 데이터 로딩
+foxtrot <- data.frame(height_cm = c(160, 175, 168, 172, 158),
+                      weight_kg = c(50, 70, 60, 65, 48))
+
+# BMI(체질량 지수) 파생변수 생성
+foxtrot$BMI <- foxtrot$weight_kg / ((foxtrot$height_cm / 100) ^ 2)
+foxtrot$BMI
