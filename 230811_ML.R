@@ -7,6 +7,7 @@ str(Sonar[, 1:10])
 library(caret)
 set.seed(998)
 inTraining <- createDataPartition(Sonar$Class, p = .75, list = FALSE)
+#             random sampling index
 training <- Sonar[ inTraining,]
 testing  <- Sonar[-inTraining,]
 fitControl <- trainControl(## 10-fold CV
@@ -32,7 +33,7 @@ pred_gbm <- predict(gbmFit1, newdata = testing)
 str(testing$Class)
 str(pred_gbm)
 
-pred_gbm <- as.data.frame(pred_gbm)
+pred_gbm <- as.data.frame(pred_gbm) # create data.frame
 str(testing)
 
 predic_gbm_y <- cbind(pred_gbm, testing$Class)
@@ -45,12 +46,22 @@ caret::confusionMatrix(predic_gbm_y$pred_gbm,
                        mode = "everything")
 
 
-### Ex.2 ###
+### model.2 ###
 
 nnet <- train(Class ~ ., data = training, 
                  method = "mlp",
                  trControl = fitControl,
                  ## This last option is actually one
                  ## for gbm() that passes through
-                 verbose = FALSE)
-nnet
+                 verbose = FALSE) # verbose = FALSE default
+nnet # == f(x)
+
+pred_nm <- predict(nnet, newdata = testing)
+pred_nm
+
+pred_nm <- as.data.frame(pred_nm)
+pred_nn_y <- cbind(pred_nm, testing$Class)
+str(pred_nn_y)
+caret::confusionMatrix(pred_nn_y$pred_nm,
+                       pred_nn_y$`testing$Class`,
+                       mode = "everything")
