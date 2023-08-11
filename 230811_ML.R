@@ -8,8 +8,8 @@ library(caret)
 set.seed(998)
 inTraining <- createDataPartition(Sonar$Class, p = .75, list = FALSE)
 #             random sampling index
-training <- Sonar[ inTraining,]
-testing  <- Sonar[-inTraining,]
+training <- Sonar[ inTraining,] # 75% training set
+testing  <- Sonar[-inTraining,] # 25% testing set
 fitControl <- trainControl(## 10-fold CV
   method = "repeatedcv",
   number = 10,
@@ -24,7 +24,7 @@ gbmFit1 <- train(Class ~ ., data = training,
                  trControl = fitControl,
                  ## This last option is actually one
                  ## for gbm() that passes through
-                 verbose = FALSE)
+                 verbose = FALSE) # verbose = FALSE default
 gbmFit1
 
 predict(gbmFit1, data = testing)
