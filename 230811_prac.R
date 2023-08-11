@@ -101,3 +101,12 @@ install.packages("gglpot2")
 install.packages("lattice")
 library(lattice)
 library(caret)
+??caret
+help(caret)
+
+
+# 결측값
+colSums(is.na(df))
+
+# 이상치
+boxplot(df)
