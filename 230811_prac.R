@@ -78,3 +78,26 @@ cg <- c("이탈여부", "구매금액대", "고객등급",
 
 df[, cg] <- lapply(df[ , cg], factor)
 str(df)
+
+# {} <= 함수식 지정
+minmax <- function(x) {
+  (x - min(x))/max(x) - min(x)
+  return(x)
+}
+
+minmax
+
+# () <= 매개변수 입력
+
+colnames(df)
+num <- c("총매출액", "X1회.평균매출액", "총.할인.금액" )
+df$총매출액 <- as.numeric(df$총매출액)
+df[, num] <- laaply(df[ , num], numeric)
+str(df)
+
+install.packages("caret", type = "binary",
+                 dependencies = T)
+install.packages("gglpot2")
+install.packages("lattice")
+library(lattice)
+library(caret)
