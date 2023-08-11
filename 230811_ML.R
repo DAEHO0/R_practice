@@ -18,8 +18,8 @@ set.seed(825)
 
 gbmFit1 <- train(Class ~ ., data = training, 
                  method = "gbm", # method = train Models By Tag
-                                 # 현재 분류 모형이므로 type == Classification(O)
-                                 #                      type == Regression(X)
+                                 # current classification model type == Classification(O)
+                                 #                              type == Regression(X)
                  trControl = fitControl,
                  ## This last option is actually one
                  ## for gbm() that passes through
