@@ -1,4 +1,4 @@
-### 머신러닝, 빅데이터 분석 ###
+### Machine Learning, Big Data Analysis ###
 
 library(mlbench)
 data(Sonar)
@@ -17,7 +17,9 @@ fitControl <- trainControl(## 10-fold CV
 set.seed(825)
 
 gbmFit1 <- train(Class ~ ., data = training, 
-                 method = "gbm", 
+                 method = "gbm", # method = train Models By Tag
+                                 # 현재 분류 모형이므로 type == Classification(O)
+                                 #                      type == Regression(X)
                  trControl = fitControl,
                  ## This last option is actually one
                  ## for gbm() that passes through
@@ -41,3 +43,14 @@ View(predic_gbm_y)
 caret::confusionMatrix(predic_gbm_y$pred_gbm,
                        predic_gbm_y$`testing$Class`,
                        mode = "everything")
+
+
+### Ex.2 ###
+
+nnet <- train(Class ~ ., data = training, 
+                 method = "mlp",
+                 trControl = fitControl,
+                 ## This last option is actually one
+                 ## for gbm() that passes through
+                 verbose = FALSE)
+nnet
