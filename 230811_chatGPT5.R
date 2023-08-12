@@ -115,3 +115,18 @@ rcll
 # 라이브러리 불러오기
 install.packages('pROC')
 install.packages('ROCR')
+library(pROC)
+library(ROCR)
+
+# 가상의 예측 결과와 실제 결과 생성
+actl <- c(1, 0, 1, 0, 1)
+prdctd <- c(0.8, 0.3, 0.6, 0.2, 0.9)
+
+# pROC 패키지를 사용한 ROC 곡선 그리기
+roc_obj <- roc(actl, prdctd)
+plot(roc_obj, main = "ROC 곡선", col = "blue", lwd = 2)
+
+# ROCR 패키지를 사용한 ROC 곡선 그리기
+pred_obj <- prediction(prdctd, actl)
+perf_obj <- performance(pred_obj, "tpr", "fpr")
+plot(perf_obj, col = "red", lwd = 2)
