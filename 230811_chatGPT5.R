@@ -124,7 +124,7 @@ prdctd <- c(0.8, 0.3, 0.6, 0.2, 0.9)
 
 # pROC 패키지를 사용한 ROC 곡선 그리기
 roc_obj <- roc(actl, prdctd)
-plot(roc_obj, main = "ROC 곡선", col = "blue", lwd = 2)
+plot(roc_obj, main = "ROC curce", col = "blue", lwd = 2)
 
 # ROCR 패키지를 사용한 ROC 곡선 그리기
 pred_obj <- prediction(prdctd, actl)
