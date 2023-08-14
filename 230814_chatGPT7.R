@@ -18,3 +18,17 @@ rf_mdl <- randomForest(train_data, train_label)
 predictions <- predict(rf_mdl, newdata = iris[101, 150], -5)
 
 # 예측 결과 출력
+print(predictions)
+
+
+### 군집 분석 ###
+
+# 필요한 라이브러리 불러오기
+data(iris)
+library(stats)
+
+# 군집 분석 수행(K-Means)
+kmeans_rlst <- kmeans(iris[ , -5], centers = 3)
+
+# 군집 분석 결과
+print(kmeans_rlst)
