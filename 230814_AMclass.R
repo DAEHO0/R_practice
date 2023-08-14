@@ -51,3 +51,6 @@ varImp(lmfit)
 lmpred <- as.data.frame(lmpred)
 pred_y <- cbind(lmpred$lmpred, test$ÃÑ¸ÅÃâ¾×)
 pred_y
+
+step(lm(ÃÑ¸ÅÃâ¾× ~., data = df), direction = "forward")
+help(step)
