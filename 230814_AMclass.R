@@ -48,3 +48,6 @@ lmpred
 str(lmpred)
 cor(lmpred, test$총매출액)
 varImp(lmfit)
+lmpred <- as.data.frame(lmpred)
+pred_y <- cbind(lmpred$lmpred, test$총매출액)
+pred_y
